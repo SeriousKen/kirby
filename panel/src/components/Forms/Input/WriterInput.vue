@@ -101,6 +101,9 @@ export const props = {
 			type: Function,
 			default: () => () => false
 		},
+		/**
+		 * See `k-writer-toolbar` for available options
+		 */
 		toolbar: {
 			type: Object,
 			default: () => ({
@@ -122,6 +125,7 @@ export const props = {
 
 export default {
 	mixins: [Input, props],
+	emits: ["input"],
 	data() {
 		return {
 			editor: null,
@@ -434,7 +438,7 @@ export default {
 	white-space: pre-wrap;
 	font-variant-ligatures: none;
 	grid-area: content;
-	padding: var(--input-padding);
+	padding: var(--input-padding-multiline);
 }
 .k-writer-input .ProseMirror:focus {
 	outline: 0;
@@ -453,6 +457,6 @@ export default {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	line-height: var(--text-line-height);
-	padding: var(--input-padding);
+	padding: var(--input-padding-multiline);
 }
 </style>

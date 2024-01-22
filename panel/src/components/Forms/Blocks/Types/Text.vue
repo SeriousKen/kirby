@@ -65,7 +65,7 @@ export default {
 			});
 		},
 		split() {
-			const contents = this.input().getSplitContent?.();
+			const contents = this.$refs.input.getSplitContent?.();
 
 			if (contents) {
 				if (this.textField.type === "writer") {
