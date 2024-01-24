@@ -13,10 +13,12 @@
 				<k-button
 					class="k-link-input-toggle"
 					:disabled="disabled"
-					:dropdown="true"
+					:dropdown="!disabled && activeTypesOptions.length > 1"
 					:icon="currentType.icon"
 					variant="filled"
-					@click="$refs.types.toggle()"
+					@click="
+						activeTypesOptions.length > 1 ? $refs.types.toggle() : toggle()
+					"
 				>
 					{{ currentType.label }}
 				</k-button>
@@ -89,11 +91,12 @@
 
 <script>
 import { props as FieldProps } from "../Field.vue";
-import { props as InputProps } from "../Input.vue";
+import { props as InputComponentProps } from "../Input.vue";
+import { props as InputMixinProps } from "@/mixins/input.js";
 import { options } from "@/mixins/props.js";
 
 export const props = {
-	mixins: [FieldProps, InputProps, options],
+	mixins: [FieldProps, InputComponentProps, InputMixinProps, options],
 	props: {
 		value: {
 			default: "",
@@ -148,8 +151,8 @@ export default {
 				}
 
 				const parts = this.$helper.link.detect(value, this.activeTypes);
-				this.linkType = this.linkType ?? parts.type;
-				this.linkValue = parts.link;
+				this.linkType = this.linkType ?? parts?.type;
+				this.linkValue = parts?.link ?? value;
 			},
 			immediate: true
 		}

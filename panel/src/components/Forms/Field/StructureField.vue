@@ -527,7 +527,7 @@ export default {
 				return items;
 			}
 
-			return this.$helper.array.sortBy(this.items, this.sortBy);
+			return this.$helper.array.sortBy(items, this.sortBy);
 		},
 		/**
 		 * Converts field value to internal
