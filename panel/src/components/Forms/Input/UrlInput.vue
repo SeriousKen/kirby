@@ -28,6 +28,6 @@ export const props = {
  * @example <k-url-input :value="value" @input="value = $event" />
  */
 export default {
-	mixins: [StringInput]
+	mixins: [StringInput, props]
 };
 </script>
