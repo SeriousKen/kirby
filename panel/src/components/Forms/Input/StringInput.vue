@@ -36,14 +36,6 @@ import {
 	spellcheck
 } from "@/mixins/props.js";
 
-import {
-	required as validateRequired,
-	minLength as validateMinLength,
-	maxLength as validateMaxLength,
-	email as validateEmail,
-	url as validateUrl
-} from "vuelidate/lib/validators";
-
 export const props = {
 	mixins: [
 		InputProps,
@@ -98,37 +90,19 @@ export default {
 		select() {
 			this.$refs.input.select();
 		}
-	},
-	validations() {
-		const validateMatch = (value) => {
-			return (
-				(!this.required && !value) || !this.$refs.input.validity.patternMismatch
-			);
-		};
-
-		return {
-			value: {
-				required: this.required ? validateRequired : true,
-				minLength: this.minlength ? validateMinLength(this.minlength) : true,
-				maxLength: this.maxlength ? validateMaxLength(this.maxlength) : true,
-				email: this.type === "email" ? validateEmail : true,
-				url: this.type === "url" ? validateUrl : true,
-				pattern: this.pattern ? validateMatch : true
-			}
-		};
 	}
 };
 </script>
 
 <style>
-.k-text-input {
+.k-string-input {
 	padding: var(--input-padding);
 	border-radius: var(--input-rounded);
 }
-.k-text-input:focus {
+.k-string-input:focus {
 	outline: 0;
 }
-.k-text-input[data-font="monospace"] {
+.k-string-input[data-font="monospace"] {
 	font-family: var(--font-mono);
 }
 .k-string-input:disabled::placeholder {
