@@ -464,3 +464,9 @@ export default {
 	}
 };
 </script>
+
+<style>
+.k-date-input:disabled::placeholder {
+	opacity: 0;
+}
+</style>

@@ -121,14 +121,17 @@ export default {
 </script>
 
 <style>
-.k-string-input {
+.k-text-input {
 	padding: var(--input-padding);
 	border-radius: var(--input-rounded);
 }
-.k-string-input:focus {
+.k-text-input:focus {
 	outline: 0;
 }
-.k-string-input[data-font="monospace"] {
+.k-text-input[data-font="monospace"] {
 	font-family: var(--font-mono);
+}
+.k-string-input:disabled::placeholder {
+	opacity: 0;
 }
 </style>
