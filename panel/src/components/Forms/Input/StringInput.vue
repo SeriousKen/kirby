@@ -67,14 +67,7 @@ export const props = {
  */
 export default {
 	mixins: [Input, props],
-	watch: {
-		value() {
-			this.onInvalid();
-		}
-	},
 	mounted() {
-		this.onInvalid();
-
 		if (this.$props.autofocus) {
 			this.focus();
 		}
@@ -84,9 +77,6 @@ export default {
 		}
 	},
 	methods: {
-		onInvalid() {
-			this.$emit("invalid", this.$v.$invalid, this.$v);
-		},
 		select() {
 			this.$refs.input.select();
 		}
