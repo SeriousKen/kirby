@@ -65,7 +65,8 @@ export default defineConfig(({ command }) => {
 		},
 		optimizeDeps: {
 			entries: "src/**/*.{js,vue}",
-			exclude: ["vitest", "vue"]
+			exclude: ["vitest", "vue"],
+			holdUntilCrawlEnd: false
 		},
 		resolve: {
 			alias: {
